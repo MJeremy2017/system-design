@@ -1,4 +1,4 @@
-# Sharding
+# Sharding (Scaling)
 
 Applied in **scaling** issue. Spread data into multiple nodes, each of them store part of the total data.
 ![img_1.png](../../imgs/sharding.png)
