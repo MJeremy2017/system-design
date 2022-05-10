@@ -1,15 +1,22 @@
-# DNS (Domain Name Service)
+# Forward/Reverse Proxy
 
-![img.png](dns.png)
+## Forward Proxy
+A forward proxy sits in front of a group of **client machines**.
 
-`DNS` maps a domain name to a specific IP address. For example, maps `www.example.com` to `172.01.11.03`.
-`DNS` is hierarchical, with a few authoritative servers at the top level. Your router or ISP provides 
-information about which `DNS` server(s) to contact when doing a lookup.
+![img.png](forward-proxy-flow.svg)
 
-- `DNS` results can be cached by your browser for some time based on TTL.
-- Some cloud service providers like AWS `Route53` all manages `DNS` service.
+A will send requests to B, which will then forward the request to C. C will then send a response to B, which will forward the response back to A.
 
-**Key Words**
+- **To block visits to certain content.**
+- **Protect identity** as only the proxy IP is exposed while client IP is hidden.
 
-- `A record` (address) - Points a name to an IP address.
-- `CNAME` (canonical) - Points a name to another name or CNAME (example.com to www.example.com) or to an A record.
+## Reverse Proxy
+A reverse proxy sits in front of a group of **server machines**.
+
+![img.png](reverse-proxy-flow.svg)
+
+All requests from D will go directly to E, and E will send its requests to and receive responses from F. E will then pass along the appropriate responses to D.
+
+- **Load balancing.**
+- **Extra security** as the server IP is not exposed.
+- **Better performance** as the proxy can also cache content.
