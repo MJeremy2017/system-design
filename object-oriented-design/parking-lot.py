@@ -1,5 +1,6 @@
 import random
 
+
 class Spot:
     def __init__(self, id: str, tp: int, empty: bool = True):
         self.id: str = id
