@@ -8,3 +8,16 @@ with `O(logN)` complexity.
 - Each node in the data structure would store the value of the index and a pointer to the original table so that
 it can retrieve other columns.
 - [Reference](https://chartio.com/learn/databases/how-does-indexing-work/)
+
+```angular2html
+CREATE TABLE my_table (
+    id int,
+    timestamp datatime,
+    user_id int,
+    name varchar(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES Person(user_id) 
+);
+
+CREATE INDEX user_index ON my_table (user_id);
+```
