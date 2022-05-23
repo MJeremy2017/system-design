@@ -8,6 +8,11 @@ Applied in **scaling** issue. Spread data into multiple nodes, each of them stor
 - Key-based sharding (hashing).
 - Range-based sharding.
 
+In the data sharding, the shard-key should be carefully chosen with
+
+- A key that is used in queries a lot.
+- Has great cardinality (granularity) so that data can be dispersed in different shards.
+
 # Dynamic/Consistent Hashing
 
 Split data into `virtual nodes`, and each `physical node(machine)` would take a series of `virtual nodes`. 
