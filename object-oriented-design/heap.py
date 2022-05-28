@@ -5,7 +5,7 @@ from typing import List
 # the function is loaded (and only once), that means that any changes to
 # a "mutable default argument" or "mutable class variable" are permanent
 class Heap:
-    def __init__(self, A: List[int]=None):
+    def __init__(self, A=None):
         if A is None:
             A = []
         self.A = A
