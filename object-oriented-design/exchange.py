@@ -45,12 +45,13 @@ class CurrencyExchange:
         weights[from_c] = 1
         parents = [i for i in range(n)]
 
-        for node in range(n - 1):
-            curr_w = weights[node]
-            for ngb, w in graph[node]:
-                if curr_w * w > weights[ngb]:
-                    weights[ngb] = curr_w * w
-                    parents[ngb] = node
+        for _ in range(n-1):
+            for node in range(n):
+                curr_w = weights[node]
+                for ngb, w in graph[node]:
+                    if curr_w * w > weights[ngb]:
+                        weights[ngb] = curr_w * w
+                        parents[ngb] = node
         paths = []
         s = to_c
         while parents[s] != s:
@@ -73,16 +74,18 @@ class CurrencyExchange:
 
 
 class TestCurrencyExchange:
-    g = {0: [(1, 10), (2, 20), (3, 2.5)], 1: [(0, 0.1), (3, 0.5)], 2: [(0, 1 / 20.0), (3, 0.1)], 3: [(1, 1 / 2.5)]}
+    def __init__(self):
+        self.g = {0: [(1, 10), (2, 20), (3, 2.5)],
+                  1: [(0, 0.1), (3, 0.5)], 2: [(0, 1 / 20.0), (3, 0.1)], 3: [(1, 1 / 2.5)]}
 
     def test_conversion_path(self):
         ex = CurrencyExchange()
-        w = ex.find_best_conversion_path(0, 3, g)
+        w = ex.find_best_conversion_path(0, 3, self.g)
         print(w)
 
     def test_conversion_path_bf(self):
         ex = CurrencyExchange()
-        w = ex.find_best_conversion_rate_bf(0, 3, g)
+        w = ex.find_best_conversion_rate_bf(0, 3, self.g)
         print(w)
 
 
