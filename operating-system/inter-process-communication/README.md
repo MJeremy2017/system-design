@@ -20,3 +20,7 @@ A process talk to the operating system(kernel) and the other process would recei
 ```
 
 ![img.png](messaging.png)
+
+## Pipe
+
+A pipe is used in the case of communication using messages. A pipe is a connection between two or more processes.
