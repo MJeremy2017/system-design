@@ -14,13 +14,13 @@ Otherwise, the server would have to maintain the data in a distributed manner, w
 
 ## Duration-based session persistence
 
-Your load balancer issues a cookie that defines a specific timeframe for session stickiness. 
+Your **load balancer issues a cookie** that defines a specific timeframe for session stickiness. 
 Each time the load balancer receives a client request, it checks whether this cookie is present.
 
 After the specified duration elapses and the cookie expires, the session is not sticky anymore.
 
 ## Application-controlled session persistence
 
-Your application generates a cookie that determines the duration of session stickiness.
+Your **application generates a cookie** that determines the duration of session stickiness.
 The load balancer still issues its own session cookie on top of it, but it now follows the 
 lifetime of the application cookie.
