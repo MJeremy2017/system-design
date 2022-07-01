@@ -15,9 +15,7 @@ class Pipe:
         self.start_time = -1
         self.s = 0
         self.size = 0
-        self.thd = threading.Thread(target=self._remove_expired)
-        self.thd.start()
-        self.thd.join()
+        self.start_background_task()
 
     def _remove_expired(self):
         while 1:
@@ -26,21 +24,21 @@ class Pipe:
                 self.s -= self.q[0].val
                 self.q.popleft()
                 self.size -= 1
-            print("here")
             time.sleep(10)
 
     def record(self, val, ts):
-        print('record element', val)
-        # self._remove_expired(ts)
         self.start_time = self.q[0].ts if len(self.q) else ts
         self.q.append(Record(val, ts))
         self.s += val
         self.size += 1
 
     def get_mean(self, ts):
-        # self._remove_expired(ts)
         self.start_time = self.q[0].ts if len(self.q) else ts
         return self.s / self.size
+
+    def start_background_task(self):
+        thd = threading.Thread(target=self._remove_expired)
+        thd.start()
 
 
 pe = Pipe()
