@@ -6,6 +6,14 @@ as read/write load would be distributed to different shards.
 ![img.png](sequence.png)
 
 
+## When to use Caching
+
+Consider using cache when data is read frequently but modified infrequently(High read). 
+Since cached data is stored in **volatile memory**, a cache server is not ideal for persisting data. 
+For instance, if a cache server restarts, all the data in memory is lost. 
+Thus, important data should be saved in persistent data stores.
+
+
 ## NoSQL Shard Key Selection
 
 - Choose shard key with high cardinality so that the data can be divided into more shards.
