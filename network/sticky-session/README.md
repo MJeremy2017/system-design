@@ -24,3 +24,18 @@ After the specified duration elapses and the cookie expires, the session is not 
 Your **application generates a cookie** that determines the duration of session stickiness.
 The load balancer still issues its own session cookie on top of it, but it now follows the 
 lifetime of the application cookie.
+
+## Stateful Architecture
+
+![img.png](stateful.png)
+
+To authenticate User A, HTTP requests must be routed to Server 1. 
+If a request is sent to other servers like Server 2, authentication would fail because Server 2 does not contain 
+User A’s session data. Similarly, all HTTP requests from User B must be routed to Server 2; 
+all requests from User C must be sent to Server 3.
+
+The issue is that every request from the same client must be routed to the same server. 
+This can be done with sticky sessions in most load balancers; 
+however, this adds the overhead. 
+**Adding or removing servers is much more difficult with this approach**. 
+It is also challenging to handle server failures.

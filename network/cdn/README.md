@@ -17,8 +17,8 @@ Sites with a small amount of traffic or sites with content that isn't often upda
 
 ## Pull CDN
 
-It update content only when a user request for that particular content(lazily pull), after that the
-content will be cached with given TTL.
+It updates content only when a user request for that particular content(lazily pull), after that the
+content will be cached with given TTL. Newly updated content will only be uploaded to CDN after TTL or first-time requested.
 
 Sites with heavy traffic work well with pull CDNs, 
 as traffic is spread out more evenly with only recently-requested content remaining on the CDN.
