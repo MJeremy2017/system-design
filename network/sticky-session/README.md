@@ -39,3 +39,15 @@ This can be done with sticky sessions in most load balancers;
 however, this adds the overhead. 
 **Adding or removing servers is much more difficult with this approach**. 
 It is also challenging to handle server failures.
+
+## Stateless Architecture
+
+![img.png](stateless.png)
+
+In this stateless architecture, HTTP requests from users can be sent to any web servers, 
+which fetch state data from a shared data store. 
+**State data is stored in a shared data store and kept out of web servers.**
+
+```
+A stateless system is simpler, more robust, and scalable. 
+```
