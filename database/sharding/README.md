@@ -28,3 +28,18 @@ The request that is mapped to index `88` is now served by the new server mapped 
 instead of the previous one that was mapped to index `99`.
 
 ![img.png](../../imgs/consistent-hashing2.png)
+
+
+## Issues
+
+**Join and de-normalization**: Once a database has been sharded across multiple servers, 
+it is hard to perform join operations across database shards. **A common workaround is to 
+de-normalize the database so that queries can be performed in a single table.**
+
+
+**Celebrity problem**: This is also called a hotspot key problem. 
+Excessive access to a specific shard could cause server overload. 
+Imagine data for Katy Perry, Justin Bieber, and Lady Gaga all end up on the same shard. 
+For social applications, that shard will be overwhelmed with read operations. 
+To solve this problem, **we may need to allocate a shard for each celebrity.** 
+Each shard might even require further partition.
