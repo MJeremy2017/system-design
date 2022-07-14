@@ -10,6 +10,12 @@ Two key parameters are required:
 A bucket will be initialised with a fixed size, and periodically, a fixed number of tokens would be refilled
 into bucket, and each request would take one token, and when tokens are all taken, the request would be dropped.
 
+Updating the refill for each object at a fixed time interval adds up a lot of write pressure to the DB. A better approach could be:
+
+1. Cache stores an object's **last refill time** and **number of tokens**.
+2. When a new request comes in, fetch the last refill time and calculated the expected `#tokens`.
+3. If `#tokens >= 1`, accept the request and reduce the counter by 1, otherwise drop or enqueue the request.
+
 
 ![img.png](token-bucket.png)
 
