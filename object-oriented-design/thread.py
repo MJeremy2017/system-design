@@ -19,12 +19,15 @@ class Pipe:
 
     def _remove_expired(self):
         while 1:
+            time.sleep(1)
+            print("clearing ...")
+            if len(self.q) == 0:
+                continue
             ts = time.time()
             if self.start_time != -1 and ts - self.start_time >= 5:
                 self.s -= self.q[0].val
                 self.q.popleft()
                 self.size -= 1
-            time.sleep(10)
 
     def record(self, val, ts):
         self.start_time = self.q[0].ts if len(self.q) else ts
