@@ -23,11 +23,33 @@ For each request, we simply find the nearest server to its right, in a clockwise
 Upon adding new server, at most one other server will be impacted by a change 
 in the number of servers.
 
-The example below a new server is added and it maps to index `95`. 
+The example below a new server is added, and it maps to index `95`. 
 The request that is mapped to index `88` is now served by the new server mapped to index `95`, 
 instead of the previous one that was mapped to index `99`.
 
 ![img.png](../../imgs/consistent-hashing2.png)
+
+
+**Basic Steps**
+
+- Map servers and keys on to the ring using a **uniformly distributed hash function**.
+- To find out which server a key is mapped to, go **clockwise** from the key position until the first server on the ring is found.
+
+**Drawback**
+
+- It is possible some nodes have fairly large or small partition.
+- It is possible key distribution is not even.
+
+**Virtual Nodes**
+
+Virtual nodes solve the above problems by introducing more nodes for each server.
+
+Instead of using s0, we have s0_0, s0_1, and s0_2 to represent server 0 on the ring. Similarly, s1_0, s1_1, and s1_2 represent server 1 on the ring.
+
+![img.png](virutal-nodes.png)
+
+As the number of virtual nodes grow, the standard deviation of partition size decreases, resulting in more
+evenly distributed partitions.
 
 
 ## Issues
