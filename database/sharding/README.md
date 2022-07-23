@@ -51,6 +51,14 @@ Instead of using s0, we have s0_0, s0_1, and s0_2 to represent server 0 on the r
 As the number of virtual nodes grow, the standard deviation of partition size decreases, resulting in more
 evenly distributed partitions.
 
+## Replication on Consistent Hashing
+
+Data will be replicated to `N`(configurable) nodes. From the position of hashed key, it will walk clockwise until find
+`N` distinct nodes in the loop and make copies on that.
+
+![img.png](replication.png)
+
+In the above case, `key0` is replicated on node `s1, s2` and `s3`.
 
 ## Issues
 
