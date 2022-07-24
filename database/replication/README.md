@@ -30,7 +30,12 @@ Each of the node that holds a copy would have one vote. Let's say a data item is
 in total there are `V` votes. And the data item is written to `V_w` nodes and are read from `V_r` node,
 the following condition must be satisfied,
 
-- `V_w` + `V_r` > `V`
-- `V_w` > `V/2`
+- `V_w` + `V_r` > `V`; Ensures strong consistency as at least one node holds the latest data.
+- `V_w` > `V/2`.
+
+**Cases**
+
+- If `V_w = 1` and `V_r = V`, then it is optimised for write, as the coordinator only needs to wait for ACK from one node when written.
+- If `V_r = 1` and `V_w = V`, then it is optimised for read.
 
 Together with **data versioning**, it ensures at least the latest data can be fetched from at least one node. 
