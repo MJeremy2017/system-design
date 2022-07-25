@@ -38,4 +38,19 @@ the following condition must be satisfied,
 - If `V_w = 1` and `V_r = V`, then it is optimised for write, as the coordinator only needs to wait for ACK from one node when written.
 - If `V_r = 1` and `V_w = V`, then it is optimised for read.
 
-Together with **data versioning**, it ensures at least the latest data can be fetched from at least one node. 
+Together with **data versioning**, it ensures at least the latest data can be fetched from at least one node.
+
+
+## Difference Comparison
+
+`Merkle tree` can be used to compare data inconsistency in 2 different servers. `Merkle tree` hashes the values of data node and
+walk all the way up to root nodes and compare their hashes.
+
+![img.png](merkle-tree1.png)
+
+During comparison, work downwards from root node and compare the hashes, continue way down only when hashes are different until
+hit the leave bucket nodes. And synchronise the data in those buckets. 
+
+![img_1.png](merkle-tree2.png)
+
+The amount of data needed to be synchronized **is proportional to the differences between the two replicas**, and not the amount of data they contain.
