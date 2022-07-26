@@ -1,5 +1,15 @@
 # Replication (Availability)
 
+## Overall Architecture
+
+![img_2.png](arch.png)
+
+- Clients communicate with the key-value store through simple APIs: get(key) and put(key,
+value).
+- A coordinator is a node that acts as a proxy between the client and the key-value store. Nodes are distributed on a ring using **consistent hashing**.
+- The system is completely decentralized so adding and moving nodes can be automatic. Data is replicated at multiple nodes.
+- There is no single point of failure as every node has the same set of responsibilities.
+
 ## Master-Slave
 Master node would take in both `Read/Write`, while Slave node only accepts `Read`.
 - **Only master node can modify the data**.
