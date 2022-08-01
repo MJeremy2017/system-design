@@ -9,7 +9,7 @@ only one thread can **acquire** the lock and access the resource, lock will be *
 ## Semaphore
 
 Semaphore is an integer variable that count the available resource for process synchronization. It uses
-**wait()** and **signal()** function to control the variable and at each time only on process can change the variable.
+**wait()** and **signal()** function to control the variable and at each time only one process can change the variable.
 
 For example, given 4 available resources, if one
 process or thread takes the resource, the count would become 3. And when the count become 0, no new process can use the
