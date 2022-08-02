@@ -10,8 +10,8 @@ when the same query used again, one can directly get the result that ready to it
 
 ## Extract Partial Fields into Json(Custom Format)
 
-The stored value in cache would be some fields of `ResultSet` that required. For example, the key
-could be a `customer_id`, value `phone, age, ...`, some fields extracted and stored in Json format.
+The stored value in cache would be some fields of `ResultSet`. For example, the key
+can be a `customer_id`, value `phone, age, ...`, some fields extracted and stored in Json format.
 
 ## Extract Partial Fields into Redis built-in Structure
 
