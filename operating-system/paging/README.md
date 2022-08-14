@@ -1,15 +1,16 @@
 # Paging
 
-Paging is a memory management technique where a computer loads data from secondary memory to primary
-memory.
+Paging is a memory management technique where a **computer loads data from secondary memory to primary
+memory.**
 
-Primary storage data is temporary and is frequently accessed by applications or other hardware systems. It is typically stored in random access memory (RAM) for fast retrieval. Secondary storage is where data in a computer is kept for longer periods of time. Secondary storage is typically slower than primary. 
+**Primary storage data(RAM)** is temporary and is frequently accessed by applications or other hardware systems. It is typically stored in random access memory (RAM) for fast retrieval. 
+Secondary storage is where data in a computer is kept for longer periods of time. **Secondary storage is typically slower than primary.** 
 A typical example of secondary memory could be a solid-state drive (SSD), for example.
 
 - The unit of a logical memory is called page.
 - The unit of a physical memory is called frame.
 
-During program execution, a process can be divided into multiple pages and then it can be assigned to
+During program execution, 1. a process can be divided into multiple pages, and then 2. it can be assigned to
 non-contiguous frames located on the physical memory.
 
 

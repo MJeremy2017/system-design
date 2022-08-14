@@ -15,6 +15,7 @@ space. Other processes that wish to communicate to this process need to attach t
 
 **Messaging**
 
+Talking through the kernel.
 ```
 A process talk to the operating system(kernel) and the other process would receive the message from there.
 ```
