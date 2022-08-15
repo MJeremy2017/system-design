@@ -22,3 +22,9 @@ content will be cached with given TTL. Newly updated content will only be upload
 
 Sites with heavy traffic work well with pull CDNs, 
 as traffic is spread out more evenly with only recently-requested content remaining on the CDN.
+
+## Cost Optimization
+CDN is expensive and to save cost, we can 
+1. Serve only popular content with CDN and unpopular ones with video servers (long-tail distribution).
+2. For less popular content, we may not need to store many encoded video versions. Short videos can be encoded on-demand.
+3. Some videos are popular only in certain regions. There is no need to distribute these videos to other regions.
