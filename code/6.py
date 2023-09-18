@@ -26,3 +26,21 @@ def solve(A) -> bool:
                     q.append((x_new, y_new))
                     vis[x_new][y_new] = 1
     return False
+
+
+if __name__ == '__main__':
+    test_cases = [
+        (
+            [[1, 0, 0], [0, 1, 0]],
+            True
+        ),
+        (
+            [[1, 0, 0], [0, 0, 1]],
+            False
+        ),
+
+    ]
+
+    for arr, want in test_cases:
+        got = solve(arr)
+        assert got == want
