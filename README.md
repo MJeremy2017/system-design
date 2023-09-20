@@ -1,2 +1,2 @@
 # System Design
-Notes of system design related topics and problems.
+Notes on system design-related topics and problems.
