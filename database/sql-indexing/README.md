@@ -21,3 +21,10 @@ CREATE TABLE my_table (
 
 CREATE INDEX user_index ON my_table (user_id);
 ```
+
+Composite indexes on column `LastName` and `FirstName`.
+
+```angular2html
+CREATE INDEX idx_pname
+ON Persons (LastName, FirstName);
+```
