@@ -22,6 +22,13 @@ CREATE TABLE my_table (
 CREATE INDEX user_index ON my_table (user_id);
 ```
 
+Unique index
+
+```angular2html
+CREATE UNIQUE INDEX index_name
+ON table_name (column1, column2, ...);
+```
+
 Composite indexes on column `LastName` and `FirstName`.
 
 ```angular2html
