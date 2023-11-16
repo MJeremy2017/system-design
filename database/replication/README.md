@@ -16,6 +16,8 @@ Master node would take in both `Read/Write`, while Slave node only accepts `Read
 
 ![img.png](rep1.png)
 
+![img.png](master-slave.png)
+
 
 ## Master-Master
 All members are responsive to client data queries.
